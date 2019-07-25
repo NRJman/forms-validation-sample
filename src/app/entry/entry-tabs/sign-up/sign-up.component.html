@@ -1,29 +1,65 @@
 <div id="signup">
     <h1>Sign Up for Free</h1>
 
-    <form action="/" method="post">
-        <div class="top-row">
+    <form [formGroup]="signupForm" (submit)="onSignupFormSubmit()">
+        <div class="top-row" formGroupName="fullName">
             <div class="field-wrap">
-                <label>First Name<span class="req">*</span></label>
-                <input type="text" required autocomplete="off" />
+                <!-- <label>First Name<span class="req">*</span></label> -->
+                <input 
+                    type="text"
+                    formControlName="firstName"
+                    autocomplete="off"
+                    placeholder="First Name*" 
+                />
+                
+                <p class="error-message" *ngIf="signupForm.get('fullName.firstName').errors?.required && signupForm.get('fullName.firstName').touched">This field is required</p>
             </div>
 
             <div class="field-wrap">
-                <label>Last Name<span class="req">*</span></label>
-                <input type="text" required autocomplete="off" />
+                <!-- <label>Last Name<span class="req">*</span></label> -->
+                <input
+                    type="text"
+                    formControlName="lastName"
+                    autocomplete="off"
+                    placeholder="Last Name*"
+                />
+
+                <p class="error-message" *ngIf="signupForm.get('fullName.lastName').errors?.required && signupForm.get('fullName.lastName').touched">This field is required</p>
             </div>
         </div>
 
         <div class="field-wrap">
-            <label>Email Address<span class="req">*</span></label>
-            <input type="email" required autocomplete="off" />
+            <!-- <label>Email Address<span class="req">*</span></label> -->
+            <input
+                type="email"
+                formControlName="email"
+                autocomplete="off"
+                placeholder="Email Address*"
+            />
+
+            <p class="error-message" 
+               *ngIf="signupForm.get('email').errors?.required && signupForm.get('email').touched">This field is required</p>
+
+            <p class="error-message"
+               *ngIf="!signupForm.get('email').errors?.required && signupForm.get('email').touched && signupForm.get('email').errors?.email">The email format is incorrect</p>
         </div>
 
         <div class="field-wrap">
-            <label>Set A Password<span class="req">*</span></label>
-            <input type="password" required autocomplete="off" />
+            <!-- <label>Set A Password<span class="req">*</span></label> -->
+            <input
+                type="password"
+                formControlName="password"
+                autocomplete="off"
+                placeholder="Password*"
+            />
+
+            <p class="error-message" 
+               *ngIf="signupForm.get('password').errors?.required && signupForm.get('password').touched">This field is required</p>
+
+            <p class="error-message"
+               *ngIf="!signupForm.get('password').errors?.required && signupForm.get('password').touched && signupForm.get('password').errors?.minlength">The minlength is 5 symbols</p>
         </div>
 
-        <button type="submit" class="button button-block">Get Started</button>
+        <button type="submit" class="button button-block" [disabled]="signupForm.invalid">Get Started</button>
     </form>
 </div>

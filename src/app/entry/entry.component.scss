@@ -112,6 +112,15 @@ input, textarea {
   border-radius: 0;
   -webkit-transition: border-color .25s ease, box-shadow .25s ease;
   transition: border-color .25s ease, box-shadow .25s ease;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 22px;
+  }
+
+  &.ng-touched.ng-invalid {
+    border-color: red;
+  }
 }
 input:focus, textarea:focus {
   outline: 0;
@@ -164,9 +173,24 @@ textarea {
 .button-block {
   display: block;
   width: 100%;
+  cursor: pointer;
+
+  &[disabled] {
+    cursor: default;
+    opacity: 0.5;
+
+    &:hover {
+      background: #1ab188;
+    }
+  }
 }
 
 .forgot {
   margin-top: -20px;
   text-align: right;
+}
+
+.error-message {
+  color: red;
+  margin: .5rem 0 0;
 }
