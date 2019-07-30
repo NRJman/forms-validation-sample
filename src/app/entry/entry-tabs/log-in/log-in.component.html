@@ -1,7 +1,7 @@
 <div id="login">
     <h1>Welcome Back!</h1>
 
-    <form [formGroup]="loginForm" (submit)="onLoginFormSubmit()">
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginFormSubmit()">
         <div class="field-wrap">
             <!-- <label>Email Address<span class="req">*</span></label> -->
             <input

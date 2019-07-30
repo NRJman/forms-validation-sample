@@ -1,7 +1,7 @@
 <div id="signup">
     <h1>Sign Up for Free</h1>
 
-    <form [formGroup]="signupForm" (submit)="onSignupFormSubmit()">
+    <form [formGroup]="signupForm" (ngSubmit)="onSignupFormSubmit()">
         <div class="top-row" formGroupName="fullName">
             <div class="field-wrap">
                 <!-- <label>First Name<span class="req">*</span></label> -->
