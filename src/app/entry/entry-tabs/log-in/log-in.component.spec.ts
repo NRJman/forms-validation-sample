@@ -25,13 +25,12 @@ describe('LogInComponent', () => {
     component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
 
-    component.ngOnInit();
     loginForm = component.loginForm;
   });
 
   it('should create a form group', () => {
     expect(loginForm).not.toEqual(undefined);
-  })
+  });
 
   it('should be invalid while empty', () => {
     expect(loginForm.valid).toBeFalsy();
