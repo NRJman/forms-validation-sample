@@ -15,7 +15,7 @@ describe('LogInComponent', () => {
       imports: [
         FormsModule,
         ReactiveFormsModule,
-        RouterTestingModule
+        RouterTestingModule.withRoutes([])
       ]
     }).compileComponents();
   }));
