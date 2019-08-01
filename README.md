@@ -1,6 +1,6 @@
 # FormsValidationSample
 
-This project is an Angular app sample that represents a simple Login and Signup forms.
+This project is an Angular app sample that represents simple Login and Signup forms.
 
 ## Motivation
 
